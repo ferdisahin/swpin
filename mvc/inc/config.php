@@ -137,6 +137,7 @@ Kirki::add_field( 'header_ad', [
 	'label'    => esc_html__( 'Header Ad', 'swpin' ),
 	'section'  => 'swpin_ad',
 	'priority' => 10,
+	'sanitize_callback' => 'do_not_filter_anything',
 ] );
 
 Kirki::add_field( 'post_top_ad', [
@@ -145,6 +146,7 @@ Kirki::add_field( 'post_top_ad', [
 	'label'    => esc_html__( 'Post Top Ad', 'swpin' ),
 	'section'  => 'swpin_ad',
 	'priority' => 10,
+	'sanitize_callback' => 'do_not_filter_anything',
 ] );
 
 Kirki::add_field( 'post_bottom_ad', [
@@ -153,6 +155,7 @@ Kirki::add_field( 'post_bottom_ad', [
 	'label'    => esc_html__( 'Post Bottom Ad', 'swpin' ),
 	'section'  => 'swpin_ad',
 	'priority' => 10,
+	'sanitize_callback' => 'do_not_filter_anything',
 ] );
 
 // Footer Section
@@ -169,4 +172,9 @@ Kirki::add_field( 'copyright_text', [
 	'section'  => 'swpin_footer',
 	'priority' => 10,
 ]);
+
+function do_not_filter_anything( $value ) {
+	return $value;
 }
+}
+
